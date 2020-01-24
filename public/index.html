@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="google-signin-client_id" content="YOUR CLIENT_ID" />
+    <meta name="google-signin-client_id" content="" />
     <title>Google signin</title>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
   </head>
@@ -15,7 +15,6 @@
 
     <script>
       let token = "";
-      const clientId = "YOUR CLIENT_ID";
 
       function onSignIn(googleUser) {
         var profile = googleUser.getBasicProfile();
