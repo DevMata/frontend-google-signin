@@ -4,7 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <meta
+      name="google-signin-client_id"
+      content="206296462575-4aue8scpefk2h5ksgk18ri9asqo8k01q.apps.googleusercontent.com"
+    />
+    <title>Google signin</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
   </head>
-  <body></body>
+  <body>
+    <div id="profileinfo"></div>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+    <script>
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        document.getElementById("profileinfo").innerHTML =
+          profile.getName() +
+          "<br>" +
+          "<img src='" +
+          profile.getImageUrl() +
+          "'/>";
+      }
+    </script>
+  </body>
 </html>
