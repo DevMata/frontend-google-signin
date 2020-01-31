@@ -4,31 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="google-signin-client_id" content="YOUR CLIENT_ID" />
+    <meta name="google-signin-client_id" content="CLIENT_ID" />
     <title>Google signin</title>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
   </head>
   <body>
     <div id="profileinfo"></div>
     <div id="token"></div>
+    <br />
+    <div id="access_token"></div>
+
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
     <script>
-      let token = "";
-      const clientId = "YOUR CLIENT_ID";
-
       function onSignIn(googleUser) {
-        var profile = googleUser.getBasicProfile();
+        var profile = googleUser.getBasicProfile()
         document.getElementById("profileinfo").innerHTML =
           profile.getName() +
           "<br>" +
           "<img src='" +
           profile.getImageUrl() +
-          "'/>";
+          "'/>"
 
-        token = googleUser.getAuthResponse().id_token;
+        const authResponse = googleUser.getAuthResponse(true)
 
-        document.getElementById("token").innerText = token;
+        document.getElementById("token").innerText = authResponse.id_token
+        document.getElementById("access_token").innerText =
+          authResponse.access_token
       }
     </script>
   </body>
