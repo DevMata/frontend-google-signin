@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "google-auth-library": "^5.9.1",
-    "http-server": "^0.12.1"
+    "http-server": "^0.12.3"
   }
 }
